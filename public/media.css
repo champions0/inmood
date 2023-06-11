@@ -1,0 +1,94 @@
+@media only screen and (max-width: 1024px) {
+    .row > div {
+        margin: 0px auto;
+    }
+    .section {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    .request-block .row, .reason-block .row {
+        flex-direction: column;
+    }
+    .request-block .right-column  {
+        padding: 10px 25px;
+    }
+    .reason-block .left-column .box:nth-child(2), 
+    .reason-block .left-column .box:last-child {
+        top: unset;
+        left: unset;
+    }
+    .reason-block .left-column .box {
+        margin: 15px auto;
+    }
+    .reason-block .right-column ul li {
+        font-size: 12px;
+        margin: 5px;
+    }
+    .reason-block .right-column ul {
+        margin-left: -5px;
+    }
+    .reason-block h2, .reason-block h3 {
+        text-align: center;
+        font-size: 25px;
+    }
+    .reason-block h3 a {
+        margin-top: 25px;
+        margin-left: 0px;
+        font-size: 14px;
+        padding: 12px 32px;
+    }
+    .reason-block {
+        margin-top: 0px;
+    }
+    .text-image-block h2 {
+        line-height: 1.5;
+        font-size: 25px;
+    }
+    .text-image-block {
+        font-size: 14px;
+    }
+    .header-block {
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+    .header-block h1 {
+        font-size: 36px;
+    }
+    .header-block p {
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 0px 15px;
+    }
+    footer p {
+        margin: 5px 0px;
+    }
+    .request-block .left-column h2 {
+        font-size: 48px;
+        text-align: center;
+    }
+    .request-block .left-column p {
+        font-size: 32px;
+        text-align: center;
+        margin-top: 15px;
+    }
+    header .book-call-btn {
+        font-size: 16px;
+        padding: 12px 32px;
+    }
+    header img {
+        max-width: 150px;
+        width: 100%;
+    }
+    .header-block .badge-text {
+        top: -42px;
+        left: -12px;
+    }
+    .header-block .badge-text p {
+        font-size: 24px;
+        left: 0px;
+    }
+    .header-block .btns-group a {
+        font-size: 14px;
+        padding: 12px 22px;
+    }
+}
