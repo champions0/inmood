@@ -12,7 +12,7 @@
     .request-block .right-column  {
         padding: 10px 25px;
     }
-    .reason-block .left-column .box:nth-child(2), 
+    .reason-block .left-column .box:nth-child(2),
     .reason-block .left-column .box:last-child {
         top: unset;
         left: unset;
@@ -90,5 +90,27 @@
     .header-block .btns-group a {
         font-size: 14px;
         padding: 12px 22px;
+    }
+    .popup-wrapper h3 {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .popup-wrapper {
+        max-width: 400px;
+    }
+    .popup-wrapper h2 {
+        font-size: 36px;
+    }
+    .popup-wrapper h3 {
+        font-size: 24px;
+    }
+    .text-image-block h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .text-image-block .left-column p {
+        font-size: 14px;
     }
 }

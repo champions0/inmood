@@ -29,6 +29,6 @@ class ContactUsController extends Controller
 
 
         Mail::to(env('MAIL_TO'))->send(new SimpleMail($email));
-        return back();
+        return response()->json(['message' => 'ok'], 200);
     }
 }

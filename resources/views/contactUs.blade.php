@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>inmood</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inmood</title>
+    <meta name="description" content="Optimize your website effortlessly with our AI-powered UX Audit software. Improve conversions, reduce churn rate, and enhance user experience. Fix issues, make your website user-friendly, and boost performance.">
+    <meta property="og:title" content="inmood" />
+    <meta property="og:description" content="Optimize your website effortlessly with our AI-powered UX Audit software. Improve conversions, reduce churn rate, and enhance user experience. Fix issues, make your website user-friendly, and boost performance." />
+    <meta property="og:image" content="images/cover.png" />
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
@@ -244,8 +249,9 @@
                             <textarea name="description" placeholder="Project description*" required></textarea>
                         </div>
                         <p>*all fields are mandatory</p>
-                        <button>Request free audit</button>
+                        <button class="submitForm">Request free audit</button>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -258,11 +264,51 @@
     </div>
 </footer>
 
+<div class="popup">
+    <div class="popup-wrapper">
+        <span class="closePopup">
+            <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.12746 29.8725C3.45603 28.2582 2.12284 26.3272 1.20568 24.1921C0.288524 22.057 -0.194235 19.7607 -0.214427 17.437C-0.234619 15.1134 0.208161 12.809 1.08808 10.6583C1.96799 8.50762 3.26742 6.55371 4.91054 4.91059C6.55367 3.26747 8.50757 1.96804 10.6583 1.08812C12.8089 0.208207 15.1133 -0.234573 17.437 -0.214381C19.7606 -0.19419 22.057 0.288569 24.192 1.20573C26.3271 2.12288 28.2581 3.45607 29.8725 5.1275C33.0602 8.42804 34.8241 12.8486 34.7843 17.437C34.7444 22.0255 32.9039 26.4147 29.6593 29.6593C26.4146 32.904 22.0254 34.7444 17.437 34.7843C12.8485 34.8242 8.42799 33.0603 5.12746 29.8725ZM7.59496 27.405C10.2219 30.032 13.7849 31.5078 17.5 31.5078C21.2151 31.5078 24.778 30.032 27.405 27.405C30.0319 24.778 31.5077 21.2151 31.5077 17.5C31.5077 13.7849 30.0319 10.222 27.405 7.595C24.778 4.96803 21.2151 3.49222 17.5 3.49222C13.7849 3.49222 10.2219 4.96803 7.59496 7.595C4.96799 10.222 3.49217 13.7849 3.49217 17.5C3.49217 21.2151 4.96799 24.778 7.59496 27.405ZM24.92 12.5475L19.9675 17.5L24.92 22.4525L22.4525 24.92L17.5 19.9675L12.5475 24.92L10.08 22.4525L15.0325 17.5L10.08 12.5475L12.5475 10.08L17.5 15.0325L22.4525 10.08L24.92 12.5475Z" fill="black"/>
+            </svg>
+        </span>
+        <h2>Thank You</h2>
+        <h3>Due to many requests, you will receive the analyzed website data within 7 days</h3>
+        <h4>Have any other questions ?</h4>
+        <p>Contact us: <a href="mailto:hey@inmood.me">hey@inmood.me</a></p>
+        <a href="https://calendly.com/inmood-serg/30min?month=2023-06">Book a Call</a>
+    </div>
+</div>
+
 <!-- Google Tag Manager (noscript) -->
 <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57ZT4H5"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    jQuery('.submitForm').click(function(e) {
+        e.preventDefault()
+        let emptyInputs = jQuery('form input').filter(function () {
+            return !this.value;
+        });
+        if (emptyInputs.length == 0 && jQuery('form textarea').val() !== '') {
+            $.ajax({
+                url: "/send-email",
+                method: "POST",
+                data: jQuery('form').serializeArray(),
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function () {
+                    jQuery('.popup').show();
+                },
+            })
+        }
+        jQuery('.closePopup').click(function () {
+            jQuery('.popup').hide();
+        })
+    })
+</script>
 </body>
 </html>
