@@ -28,7 +28,7 @@ class ContactUsController extends Controller
         ];
 
 
-        Mail::to('harutharutunyan94@gmail.com')->send(new SimpleMail($email));
+        Mail::to(env('MAIL_TO'))->send(new SimpleMail($email));
         return back();
     }
 }
