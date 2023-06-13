@@ -245,6 +245,9 @@
                         <div class="inp-block">
                             <input type="text" name="company" required placeholder="Company*">
                         </div>
+                        <div class="inp-block">
+                            <input type="email" name="email" required placeholder="Email*">
+                        </div>
                         <div class="inp-block textarea">
                             <textarea name="description" placeholder="Project description*" required></textarea>
                         </div>

@@ -27,6 +27,7 @@ class ContactUsSendEmailRequest extends FormRequest
             'url' => ['required', 'string', 'max:255'],
             'full_name' => ['required', 'string', 'max:255'],
             'company' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:155'],
             'description' => ['required', 'string', 'max:2550'],
             ];
     }

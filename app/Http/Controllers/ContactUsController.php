@@ -22,6 +22,7 @@ class ContactUsController extends Controller
                    'url' => $data['url'],
                    'full_name' => $data['full_name'],
                    'company' => $data['company'],
+                   'email' => $data['email'],
                    'description' => $data['description'],
                 ],
             ]

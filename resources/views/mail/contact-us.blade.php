@@ -73,6 +73,10 @@
                     <td>{{ $param['company'] }}</td>
                 </tr>
                 <tr>
+                    <td>Email:</td>
+                    <td>{{ $param['email'] }}</td>
+                </tr>
+                <tr>
                     <td>Project Description:</td>
                     <td>{{ $param['description'] }}</td>
                 </tr>
